@@ -50,13 +50,19 @@ export class ProductsComponent implements OnInit {
           this.product = {} as Product;
         }
       });
-      console.log("Salvando producto : " + this.products.length)    }
-      this.product = {} as Product;
-      this.showForm = false;
+      console.log("Salvando producto : " + this.products.length)
+    }
+    this.product = {} as Product;
+    this.showForm = false;
   }
-
-  create(){
+  create() {
     this.showForm = true;
   }
-
+  edit(product: Product) {
+    this.product = product;
+    this.showForm = true;
+  }
+  delete(product: Product) {
+    console.log("Deleting.. " + product.id)
+  }
 }
