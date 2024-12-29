@@ -13,8 +13,13 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>("http://localhost:8080/products");
   }
-
   save(product: Product) {
-    return this.http.post<Product>("http://localhost:8080/product", product);
+    return this.http.post<Product>("http://localhost:8080/products", product);
+  }
+  update(product: Product) {
+    return this.http.put<Product>(`http://localhost:8080/products/${product.id}`, product);
+  }
+  delete(product: Product) {
+    return this.http.delete<void>(`http://localhost:8080/products/${product.id}`);
   }
 }
